@@ -1,0 +1,40 @@
+.Wrapper {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.Card {
+  border: 1px solid black;
+  border-radius: 10%;
+  background-color: orange;
+  max-width: 300px;
+  padding: 20px;
+}
+
+.wrapImg {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.wrapImg:hover .Image {
+  transform: scale(1.2);
+}
+
+.p5 {
+  margin-bottom: 5px;
+}
+
+ul li a:hover {
+  color: blue;
+}
