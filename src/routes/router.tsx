@@ -1,14 +1,10 @@
-import * as React from "react";
-import {
-  createRootRoute,
-  createRoute,
-} from "@tanstack/react-router";
-import PokemonCard from "../components/PokemonCard";
-import AbilityComponent from "./ability";
-import { RootComponent } from "./root";
+import { createRootRoute, createRoute } from "@tanstack/react-router";
+import PokemonCard from "@/components/pokemons/PokemonCard";
+import AbilityComponent from "@/components/abilities/Ability";
+import Pages from "./Pages";
 
 export const rootRoute = createRootRoute({
-  component: RootComponent,
+  component: Pages,
 });
 
 const indexRoute = createRoute({
@@ -17,24 +13,10 @@ const indexRoute = createRoute({
   component: PokemonCard,
 });
 
-const abilityRoute = createRoute({
+export const abilityRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/ability/$abilityName",
   component: AbilityComponent,
 });
 
-
-export const pokemonAbilityName = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "$name",
-  component: AbilityComponent
-})
-
-
-
 export const routeTree = rootRoute.addChildren([indexRoute, abilityRoute]);
-
-
-
-
-

@@ -1,24 +1,28 @@
-import { Link, useParams } from "@tanstack/react-router";
-import { pokemonAbilityName } from "./router";
+import { Link } from "@tanstack/react-router";
+import { abilityRoute } from "@/routes/router";
 import { useEffect, useState } from "react";
-import type { AbilityResponse } from "../types/types";
-import styles from "../components/Ability.module.scss";
+import type { AbilityResponse } from "@/types/types";
+import styles from "./Ability.module.scss";
 
 function AbilityComponent() {
   const [ability, setAbility] = useState<AbilityResponse | null>(null);
-  const { abilityName } = pokemonAbilityName.useParams();
+  const { abilityName } = abilityRoute.useParams();
+  // console.log(abilityName);
+
+  const getAbilityFetch = async () => {
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/ability/${abilityName}`,
+    );
+    return response.json();
+  };
 
   useEffect(() => {
-    const getAbilityFetch = async () => {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/ability/${abilityName}`,
-      );
-      const data = await response.json();
-      console.log(data);
+    const abilityData = async () => {
+      const data = await getAbilityFetch();
       setAbility(data);
     };
 
-    getAbilityFetch();
+    abilityData();
   }, [abilityName]);
   console.log(ability);
   return (

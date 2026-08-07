@@ -6,12 +6,11 @@ import { routeTree } from "./routes/router.tsx";
 
 const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router
+    router: typeof router;
   }
 }
-
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

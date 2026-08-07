@@ -19,7 +19,7 @@ export type PokemonAbility = {
 };
 
 export type AbilityResponse = {
-    effect_entries: PokemonEffect[];
+  effect_entries: PokemonEffect[];
 }
 
 export type PokemonEffect = {

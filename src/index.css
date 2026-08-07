@@ -2,21 +2,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 button,
 input,
 select {
-  font: inherit; 
+  font: inherit;
 }
 
 button,
 select {
-  text-transform: none; 
+  text-transform: none;
 }
 
-ul li  {
+ul li {
   list-style: none;
 }
 
