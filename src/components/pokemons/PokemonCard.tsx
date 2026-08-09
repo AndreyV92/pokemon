@@ -1,37 +1,9 @@
-import { useEffect, useState } from "react";
-
-import type { Pokemon, PokemonDataFetch } from "@/types/types";
 import styles from "./PokemonCard.module.scss";
 import { Link } from "@tanstack/react-router";
+import { indexRoute } from "@/routes/router";
 
 const PokemonCard = () => {
-  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-
-  async function getPokemonData() {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon");
-    const pokemonsAlldata = await response.json();
-    console.log(pokemonsAlldata);
-
-    const pokemonFetchResults = pokemonsAlldata.results.map(
-      async (pokemon: PokemonDataFetch) => {
-        // console.log(pokemon)
-        const pokemonResponse = await fetch(pokemon.url);
-        return pokemonResponse.json();
-      },
-    );
-
-    return Promise.all(pokemonFetchResults);
-  }
-
-  useEffect(() => {
-    async function pokemonData() {
-      const data = await getPokemonData();
-      console.log(data);
-      setPokemons(data);
-    }
-
-    pokemonData();
-  }, []);
+  const pokemons = indexRoute.useLoaderData();
 
   return (
     <>
