@@ -28,6 +28,8 @@ export const indexRoute = createRoute({
   component: PokemonCard,
 });
 
+
+
 export const abilityRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/ability/$abilityName",
@@ -40,4 +42,16 @@ export const abilityRoute = createRoute({
   component: AbilityComponent,
 });
 
+
+// export const generationRoute = createRoute({
+//   getParentRoute: () => rootRoute,
+//   path: "/ability/$abilityName",
+//   loader: async ({ params }): Promise<AbilityResponse> => {
+//     const response = await fetch(
+//       `https://pokeapi.co/api/v2/ability/${params.abilityName}/`,
+//     );
+//     return response.json();
+//   },
+//   component: AbilityComponent,
+// });
 export const routeTree = rootRoute.addChildren([indexRoute, abilityRoute]);

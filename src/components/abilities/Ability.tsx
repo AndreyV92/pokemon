@@ -1,10 +1,18 @@
-import { Link } from "@tanstack/react-router";
+import { useRouter, useCanGoBack } from "@tanstack/react-router";
 import { abilityRoute } from "@/routes/router";
+import { Button } from "@/components/ButtonBack/Button";
 import styles from "./Ability.module.scss";
 
 function AbilityComponent() {
   const ability = abilityRoute.useLoaderData();
   console.log(ability);
+
+  const router = useRouter();
+  const canGoBack = useCanGoBack();
+
+  const handleClickPrev = () => {
+    router.history.back();
+  };
 
   return (
     <>
@@ -18,9 +26,11 @@ function AbilityComponent() {
           ))}
       </ul>
 
-      <button>
-        <Link to={"/"}>На главную</Link>
-      </button>
+      {canGoBack ? (
+        <Button onClick={handleClickPrev} className={styles.btnBack}>
+          Назад
+        </Button>
+      ) : null}
     </>
   );
 }

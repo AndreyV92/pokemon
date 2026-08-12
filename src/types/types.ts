@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type Pokemon = {
   id: number;
   name: string;
@@ -31,3 +33,9 @@ export type PokemonDataFetch = {
   name: string;
   url: string;
 };
+
+export type ButtonType = {
+  onClick: () => void,
+  className: string,
+  children: ReactNode
+}
