@@ -45,6 +45,14 @@ const PokemonCard = () => {
                 </li>
               ))}
             </ul>
+            <Link
+              to="/location/$pokemonName"
+              params={{
+                pokemonName: pokemon.name,
+              }}
+            >
+              Локация покемона
+            </Link>
           </div>
         ))}
       </div>

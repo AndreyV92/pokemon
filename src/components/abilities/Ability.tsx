@@ -1,7 +1,7 @@
 import { useRouter, useCanGoBack } from "@tanstack/react-router";
 import { abilityRoute } from "@/routes/router";
 import { Button } from "@/components/ButtonBack/Button";
-import styles from "./Ability.module.scss";
+import styles from "../ButtonBack/ButtonBack.module.scss";
 
 function AbilityComponent() {
   const ability = abilityRoute.useLoaderData();
@@ -20,7 +20,8 @@ function AbilityComponent() {
       <ul className={styles.mb10}>
         {ability &&
           ability.effect_entries.map((effect) => (
-            <li className={styles.mb5} key={effect.id}>
+            
+            <li className={styles.mb5} key={effect.effect}>
               <span>Эффект:</span> {effect.effect}
             </li>
           ))}

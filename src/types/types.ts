@@ -9,13 +9,21 @@ export type Pokemon = {
   weight: number;
   height: number;
   abilities: PokemonAbility[];
+  location: PokemonLocations[]
 };
+
+export type PokemonLocations = {
+  location_area: {
+    name: string,
+    url: string
+  }
+
+}
 
 export type PokemonAbility = {
   ability: {
     name: string;
     url: string;
-    id: string;
   };
 
 };
@@ -26,7 +34,6 @@ export type AbilityResponse = {
 
 export type PokemonEffect = {
   effect: string;
-  id: string;
 }
 
 export type PokemonDataFetch = {
