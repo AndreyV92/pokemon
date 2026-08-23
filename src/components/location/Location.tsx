@@ -1,17 +1,8 @@
 import { locationsRoute } from "@/routes/router";
-import { useCanGoBack, useRouter } from "@tanstack/react-router";
-import { Button } from "../ButtonBack/Button";
-import styles from "../ButtonBack/ButtonBack.module.scss";
+import ButtonBack from "../ButtonBack/ButtonBack";
 
 const Location = () => {
   const locations = locationsRoute.useLoaderData();
-
-  const router = useRouter();
-  const canGoBack = useCanGoBack();
-
-  const handleClickPrev = () => {
-    router.history.back();
-  };
 
   console.log(locations);
   return (
@@ -24,11 +15,7 @@ const Location = () => {
         </div>
       ))}
 
-      {canGoBack ? (
-        <Button onClick={handleClickPrev} className={styles.btnBack}>
-          Назад
-        </Button>
-      ) : null}
+      <ButtonBack />
     </div>
   );
 };
