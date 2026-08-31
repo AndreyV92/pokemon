@@ -3,7 +3,7 @@ import { Outlet } from "@tanstack/react-router";
 const Pages = () => {
   return (
     <>
-      <h1>Покемоны</h1>
+      <h1 style={{marginBottom: "10px"}}>Покемоны</h1>
       <Outlet />
     </>
   );
