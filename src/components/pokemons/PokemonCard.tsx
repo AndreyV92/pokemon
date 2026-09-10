@@ -1,21 +1,34 @@
 import styles from "./PokemonCard.module.scss";
 import { Link } from "@tanstack/react-router";
-import { indexRoute } from "@/routes/router";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getPokemonCardInfo } from "./api";
 
 const PokemonCard = () => {
-  const pokemons = indexRoute.useLoaderData();
+  // const pokemons = indexRoute.useLoaderData();
 
   const [search, setSearch] = useState("");
 
-  const filteredPokemons = pokemons.filter((pokemon) =>
+  const { data, error, isPending } = useQuery({
+    queryKey: ["pokemons"],
+    queryFn: getPokemonCardInfo,
+  });
+
+  if (isPending) {
+    return "Загрузка...";
+  }
+
+  if (error) return "An error has occurred: " + error.message;
+
+  const filteredPokemons = data.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
-    <div style={{display: "flex", flexDirection: "column"}}>
+    <div className="flex flex-col px-8">
       <input
-        className={styles.input}
+        // className={styles.input}
+        className="mb-8 border-1 border-solid rounded-sm w-48 self-center px-4"
         type="text"
         placeholder="Поиск покемона..."
         value={search}
@@ -26,7 +39,7 @@ const PokemonCard = () => {
         {filteredPokemons.length > 0 ? (
           filteredPokemons.map((pokemon) => (
             <div key={pokemon.id} className={styles.Card}>
-              <h2 style={{ textAlign: "center", marginBottom: "10px" }}>
+              <h2 className="text-center mb-3">
                 Название: <span>{pokemon.name}</span>
               </h2>
 
@@ -38,15 +51,15 @@ const PokemonCard = () => {
                 />
               </div>
 
-              <p className={styles.p5}>
+              <p className="mb-1">
                 Вес: <span>{pokemon.weight}</span>
               </p>
 
-              <p className={styles.p5}>
+              <p className="mb-1">
                 Рост: <span>{pokemon.height}</span>
               </p>
 
-              <h3 className={styles.p5}>Способности:</h3>
+              <h3 className="mb-1">Способности:</h3>
               <ul>
                 {pokemon.abilities.map((ability) => (
                   <li className={styles.p5} key={ability.ability.name}>
@@ -72,7 +85,7 @@ const PokemonCard = () => {
             </div>
           ))
         ) : (
-          <div>
+          <div className="col-span-full text-center ">
             <span>Карточка не найдена</span>
           </div>
         )}
