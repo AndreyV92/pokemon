@@ -10,7 +10,7 @@ function AbilityComponent() {
   console.log(abilityName);
 
   const { data, error, isPending } = useQuery({
-    queryKey: ["ability", "abilityName"],
+    queryKey: ["ability", abilityName],
     queryFn: () => getAbility(abilityName),
   });
 
@@ -21,19 +21,22 @@ function AbilityComponent() {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <>
+    <div className="flex flex-col px-8">
       <h1 className={styles.mb10}>Эффект способностей:</h1>
-      <ul className={styles.mb10}>
+      <div>
+        <ul className="mb-[20px]"> 
         {data &&
           data.effect_entries.map((effect) => (
-            <li className={styles.mb5} key={effect.effect}>
+            <li className="mb-[5px]" key={effect.effect}>
               <span>Эффект:</span> {effect.effect}
             </li>
           ))}
       </ul>
+      </div>
+      
 
       <ButtonBack />
-    </>
+    </div>
   );
 }
 

@@ -12,7 +12,7 @@ const ButtonBack = () => {
   if (!canGoBack) return null;
 
   return (
-    <button onClick={handleClickPrev} className={styles.btnBack}>
+    <button onClick={handleClickPrev} className="w-fit bg-[aqua] px-10 py-2 rounded-lg self-center">
       Назад
     </button>
   );

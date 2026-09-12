@@ -9,7 +9,7 @@ const Location = () => {
   console.log(pokemonName);
 
   const { data, error, isPending } = useQuery({
-    queryKey: ["ability", "abilityName"],
+    queryKey: ["location", pokemonName],
     queryFn: () => getLocations(pokemonName),
   });
 
@@ -20,14 +20,16 @@ const Location = () => {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <div>
-      <h1>Локации покемона</h1>
-
-      {data.map((location) => (
-        <div key={location.location_area.name}>
+    <div className="flex flex-col px-8">
+      <h1 className="uppercase font-bold ">Локации покемона:</h1>
+      <div className="mb-[20px]">
+        {data.map((location) => (
+        <div className="mb-[5px]" key={location.location_area.name}>
           <h2>{location.location_area.name}</h2>
         </div>
       ))}
+      </div>
+      
 
       <ButtonBack />
     </div>

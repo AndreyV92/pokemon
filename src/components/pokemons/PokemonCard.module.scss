@@ -10,6 +10,14 @@
   background-color: orange;
   max-width: 300px;
   padding: 20px;
+   background: rgb(234, 226, 226);
+   
+}
+
+.Card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .wrapImg {

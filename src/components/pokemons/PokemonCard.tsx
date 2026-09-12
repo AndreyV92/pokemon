@@ -25,10 +25,9 @@ const PokemonCard = () => {
   );
 
   return (
-    <div className="flex flex-col px-8">
+    <div className="flex flex-col px-8" >
       <input
-        // className={styles.input}
-        className="mb-8 border-1 border-solid rounded-sm w-48 self-center px-4"
+        className="mb-8 border-1 border-solid rounded-sm w-48 self-center px-4 bg-white "
         type="text"
         placeholder="Поиск покемона..."
         value={search}
@@ -40,7 +39,7 @@ const PokemonCard = () => {
           filteredPokemons.map((pokemon) => (
             <div key={pokemon.id} className={styles.Card}>
               <h2 className="text-center mb-3">
-                Название: <span>{pokemon.name}</span>
+                 <span className="text-[18px] font-bold capitalize">{pokemon.name}</span>
               </h2>
 
               <div className={styles.wrapImg}>
