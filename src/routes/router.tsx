@@ -1,8 +1,8 @@
 import { createRootRoute, createRoute } from "@tanstack/react-router";
-import PokemonCard from "@/components/pokemons/PokemonCard";
-import AbilityComponent from "@/components/abilities/Ability";
+import PokemonCard from "@/components/Pokemons/PokemonCard";
+import AbilityComponent from "@/components/Abilities/Ability";
 import Pages from "./Pages";
-import Location from "@/components/location/Location";
+import Location from "@/components/Location/Location";
 
 export const rootRoute = createRootRoute({
   component: Pages,

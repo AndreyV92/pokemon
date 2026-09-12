@@ -3,11 +3,11 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getPokemonCardInfo } from "./api";
+import InputSearch from "../Search/InputSearch";
 
 const PokemonCard = () => {
-  // const pokemons = indexRoute.useLoaderData();
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState<string>("");
 
   const { data, error, isPending } = useQuery({
     queryKey: ["pokemons"],
@@ -26,13 +26,15 @@ const PokemonCard = () => {
 
   return (
     <div className="flex flex-col px-8" >
-      <input
+      {/* <input
         className="mb-8 border-1 border-solid rounded-sm w-48 self-center px-4 bg-white "
         type="text"
         placeholder="Поиск покемона..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-      />
+      /> */}
+
+      <InputSearch search={search} setSearch={setSearch}/>
 
       <div className={styles.Wrapper}>
         {filteredPokemons.length > 0 ? (
