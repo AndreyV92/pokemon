@@ -4,7 +4,7 @@ import style from "./Header.module.scss";
 
 export const Header = () => {
   return (
-    <div className="px-8 py-4 flex justify-between items-center bg-white">
+    <div className="w-full mx-8 py-4 flex justify-between items-center bg-white">
       <nav>
         <ul className="flex items-center gap-10">
           <li className="flex items-center">
@@ -19,7 +19,7 @@ export const Header = () => {
         </ul>
       </nav>
       <ul className="flex items-center gap-10 ">
-        <li className="mb-0">
+        <li>
           <InputSearch />
         </li>
         <li>

@@ -1,16 +1,15 @@
 .Wrapper {
   display: grid;
-  gap: 10px;
+  gap: 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 
 .Card {
   border: 1px solid black;
   border-radius: 10%;
-  background-color: orange;
-  max-width: 300px;
+  
   padding: 20px;
-   background: rgb(234, 226, 226);
+   background: #eae2e2;
    
 }
 
