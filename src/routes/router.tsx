@@ -1,8 +1,7 @@
 import { createRootRoute, createRoute } from "@tanstack/react-router";
-import PokemonCard from "@/components/Pokemons/PokemonCard";
-import AbilityComponent from "@/components/Abilities/Ability";
 import Pages from "./Pages";
-import Location from "@/components/Location/Location";
+import ReadMore from "@/components/ReadMore/ReadMore";
+import Home from "@/components/Home/Home";
 
 export const rootRoute = createRootRoute({
   component: Pages,
@@ -11,23 +10,30 @@ export const rootRoute = createRootRoute({
 export const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: PokemonCard,
+  component: Home,
 });
 
-export const abilityRoute = createRoute({
+export const readMoreRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: "/ability/$abilityName",
-  component: AbilityComponent,
+  path: "/readMore/$pokemonName",
+  component: ReadMore,
 });
 
-export const locationsRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/location/$pokemonName",
-  component: Location,
-});
+// export const abilityRoute = createRoute({
+//   getParentRoute: () => rootRoute,
+//   path: "/ability/$abilityName",
+//   component: AbilityComponent,
+// });
+
+// export const locationsRoute = createRoute({
+//   getParentRoute: () => rootRoute,
+//   path: "/location/$pokemonName",
+//   component: Location,
+// });
 
 export const routeTree = rootRoute.addChildren([
   indexRoute,
-  abilityRoute,
-  locationsRoute,
+  // abilityRoute,
+  // locationsRoute,
+  readMoreRoute,
 ]);

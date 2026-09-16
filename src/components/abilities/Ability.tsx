@@ -1,4 +1,4 @@
-import { abilityRoute } from "@/routes/router";
+// import { abilityRoute } from "@/routes/router";
 import styles from "../ButtonBack/ButtonBack.module.scss";
 import ButtonBack from "../ButtonBack/ButtonBack";
 import { getAbility } from "./api";

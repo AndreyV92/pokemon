@@ -24,6 +24,7 @@ const PokemonCard = () => {
   );
 
   return (
+    //Inputs
     <div className="flex flex-col w-full  mx-8 rounded-[20px] mb-8 ">
       <div className="flex justify-between mb-8  ">
         <div className="flex gap-5">
@@ -41,57 +42,65 @@ const PokemonCard = () => {
           <span>Показано: 151/151</span>
         </div>
       </div>
-
+      {/* Cards */}
       <div className="flex flex-col ">
         <div className={styles.Wrapper}>
           {filteredPokemons.length > 0 ? (
             filteredPokemons.map((pokemon) => (
+              //Card
               <div key={pokemon.id} className={styles.Card}>
-                <h2 className="text-center mb-3">
-                  <span className="text-[18px] font-bold capitalize">
-                    {pokemon.name}
-                  </span>
-                </h2>
-
-                <div className={styles.wrapImg}>
-                  <img
-                    className={styles.Image}
-                    src={pokemon.sprites.front_default}
-                    alt="картинка покемона"
-                  />
+                <div className="bg-blue-500">
+                  <div className={styles.wrapImg}>
+                    <img
+                      className={styles.Image}
+                      src={pokemon.sprites.front_default}
+                      alt="картинка покемона"
+                    />
+                  </div>
                 </div>
 
-                <p className="mb-1">
-                  Вес: <span>{pokemon.weight}</span>
-                </p>
-
-                <p className="mb-1">
-                  Рост: <span>{pokemon.height}</span>
-                </p>
-
-                <h3 className="mb-1">Способности:</h3>
-                <ul>
-                  {pokemon.abilities.map((ability) => (
-                    <li className={styles.p5} key={ability.ability.name}>
-                      <Link
-                        to="/ability/$abilityName"
-                        params={{
-                          abilityName: ability.ability.name,
-                        }}
+                <div className="p-5">
+                  {/* Name */}
+                  <h2 className="text-left mb-3 text-[18px] font-bold capitalize">
+                    {pokemon.name}
+                  </h2>
+                  <ul className="flex gap-5 mb-15">
+                    {pokemon.abilities.map((ability) => (
+                      <li
+                        className="border-1 border-solid rounded-[15px] px-2"
+                        key={ability.ability.name}
                       >
-                        {ability.ability.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link
+                        <span>{ability.ability.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/readMore/$pokemonName"
+                    params={{ pokemonName: pokemon.name }}
+                  >
+                    Подробнее →
+                  </Link>
+                </div>
+
+                {/* <p className="mb-1">
+                  Вес: <span>{pokemon.weight}</span>
+                </p> */}
+
+                {/* <p className="mb-1">
+                  Рост: <span>{pokemon.height}</span>
+                </p> */}
+
+                {/* <h3 className="mb-1">Способности:</h3> */}
+                {/* Ability */}
+
+                {/* <Link
                   to="/location/$pokemonName"
                   params={{
                     pokemonName: pokemon.name,
                   }}
                 >
                   Локация покемона
-                </Link>
+                </Link> */}
               </div>
             ))
           ) : (

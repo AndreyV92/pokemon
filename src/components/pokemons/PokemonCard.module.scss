@@ -8,23 +8,17 @@
   border: 1px solid black;
   border-radius: 10%;
   
-  padding: 20px;
+  // padding: 20px;
    background: #eae2e2;
-   
+   min-height: 400px;
+   overflow: hidden;
 }
 
-.Card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
 
 .wrapImg {
-  position: relative;
-  display: block;
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: 50%;
+  min-height: 50%;
 }
 
 .Image {
@@ -34,13 +28,7 @@
   transition: transform 0.3s ease;
 }
 
-.wrapImg:hover .Image {
-  transform: scale(1.2);
-}
 
-.p5 {
-  margin-bottom: 5px;
-}
 
 ul li a:hover {
   color: blue;
