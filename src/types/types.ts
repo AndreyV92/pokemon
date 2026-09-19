@@ -9,8 +9,14 @@ export type Pokemon = {
   weight: number;
   height: number;
   abilities: PokemonAbility[];
-  location: PokemonLocations[]
+  location: PokemonLocations[];
+  base_experience?: number
+  stats: PokemonStats[]
 };
+
+type PokemonStats = {
+  base_stat: number
+}
 
 export type PokemonLocations = {
   location_area: {
@@ -45,4 +51,8 @@ export type ButtonType = {
   onClick: () => void,
   className: string,
   children: ReactNode
+}
+
+export type ButtonBackProps = {
+  className?: string
 }

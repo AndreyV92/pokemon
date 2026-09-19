@@ -1,6 +1,7 @@
 import { useCanGoBack, useRouter } from "@tanstack/react-router";
+import type { ButtonBackProps } from "@/types/types";
 
-const ButtonBack = () => {
+const ButtonBack = ({ className = "" }: ButtonBackProps) => {
   const router = useRouter();
   const canGoBack = useCanGoBack();
 
@@ -11,8 +12,8 @@ const ButtonBack = () => {
   if (!canGoBack) return null;
 
   return (
-    <button onClick={handleClickPrev} className="mb-20 ">
-      ← Назад!!!
+    <button onClick={handleClickPrev} className={className}>
+      ← Назад
     </button>
   );
 };
